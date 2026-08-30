@@ -13,9 +13,9 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v3
-      - name: Normalize + prepare gradlew
+      - name: Prepare gradlew
         run: |
-          sed -i 's/$//' gradlew
+          sed -i 's/\r$//' gradlew
           chmod +x ./gradlew
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
